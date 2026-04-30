@@ -1,0 +1,7 @@
+{
+    "recommendations": [
+        "github.copilot",
+        "davidanson.vscode-markdownlint",
+        "editorconfig.editorconfig"
+    ]
+}
