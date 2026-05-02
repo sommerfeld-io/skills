@@ -7,12 +7,17 @@ description: 'Automate and standardize the process of creating or updating a pul
 
 Automate and standardize the process of creating or updating a pull request from a feature or fix branch (not `main`).
 
+
+
+**Copilot must always use the GPT-4.1 model for all analysis, summarization, and generation steps in this workflow. The skill must clearly state in its answer which model was used.**
+
 **Copilot must actually create the pull request on GitHub using the GitHub CLI (`gh`), not just generate the description.**
 
 ## Workflow
 
 1. **Check Branch**: Ensure the current branch is not `main`. If there is already an open pull request for the branch, do not abort—instead, update the existing PR's title and description to reflect the latest commits and repository context. Ignore all closed PRs (merged or unmerged); only open PRs count. If on `main`, exit with an appropriate message.
-2. **Generate Description**: Analyze recent commits and repository context to extract relevant changes, features, or fixes. Copilot must generate the entire PR description automatically - no user input required.
+2. **Model Selection**: For all model-based operations (analysis, summarization, generation), always use the GPT-4.1 model. Do not use any other model or fallback.
+2. **Generate Description**: Analyze recent commits and repository context to extract relevant changes, features, or fixes. Copilot must generate the entire PR description automatically - no user input required. All analysis and generation must be performed using GPT-4.1.
 3. **Create PR**: Use the GitHub CLI (`gh`) to create a pull request targeting `main` (or the default branch) of the current repository, using the generated description. The PR title must follow [Conventional Commit](https://www.conventionalcommits.org/en/v1.0.0/#summary) syntax. If authentication is missing, inform the user and prompt them to run `gh auth login` before proceeding.
 4. **Completion**: Confirm the PR was created, display the final description for review, and show a link to the PR on GitHub.com.
 
