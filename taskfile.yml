@@ -1,0 +1,13 @@
+---
+version: '3.42.1'
+tasks:
+
+  lint-and-fix:
+    desc: 'Use GitHub Copilot to lint and fix issues in the project'
+    cmds:
+      - copilot --allow-all --prompt "/lint-and-fix"
+
+  pull-request:
+    desc: 'Use GitHub Copilot to create or update a pull request with a summary of all changes based on commit messages'
+    cmds:
+      - copilot --allow-all --prompt "/create-or-update-pull-request"
