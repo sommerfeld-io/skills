@@ -119,6 +119,8 @@ After all issues have been processed, print a summary table:
 - Never modify the issue title.
 - Base all refinement solely on the data already present in the issue (title, body, labels, comments). Do not invent requirements or assumptions that cannot be derived from the existing content.
 - The refined body must be well-formatted Markdown with appropriate headings, lists, and spacing.
+- All headings within the refined issue body must use level 3 (`###`) or lower — never `#` or `##`.
+- Use ordered or unordered lists for non-actionable content. Use checkbox lists (`- [ ] item`) for actual todos or actionable items.
 - If `gh` is not authenticated, inform the user and ask them to run `gh auth login` before proceeding.
 - Only process **open** issues. Skip any issue that is closed.
 
