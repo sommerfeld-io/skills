@@ -11,3 +11,8 @@ tasks:
     desc: 'Use GitHub Copilot to create or update a pull request with a summary of all changes based on commit messages'
     cmds:
       - copilot --allow-all --prompt "/create-or-update-pull-request"
+
+  triage-issues:
+    desc: 'Use GitHub Copilot to triage all open GitHub issues labelled "needs-triage" in the current repository'
+    cmds:
+      - copilot --allow-all --prompt "/triage-issues"
