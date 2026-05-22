@@ -1,11 +1,11 @@
 ---
 name: triage-issues
-description: 'Triage all open GitHub issues labelled "needs-triage" in the current repository. Turns skeleton issues into fully described issues (user stories, feature requests, or bug reports) and swaps the triage label for "refinement-done". No arguments required.'
+description: 'Triage all open GitHub issues labelled "needs-triage" in the current repository. Turns skeleton issues into fully described issues (user stories, feature requests, or bug reports) and swaps the triage label for "review-me". No arguments required.'
 ---
 
 # Triage Issues
 
-Automatically refine all open issues labelled `needs-triage` in the current GitHub repository. Each skeleton issue is enriched into a well-structured description that matches the issue type, after which the triage label is replaced with `refinement-done`.
+Automatically refine all open issues labelled `needs-triage` in the current GitHub repository. Each skeleton issue is enriched into a well-structured description that matches the issue type, after which the triage label is replaced with `review-me`.
 
 **No input parameters or additional context from the user are required or accepted.**
 
@@ -94,16 +94,16 @@ Ensure the body is valid Markdown with real line breaks, not escaped `\n` sequen
 
 ### 5. Swap the triage label
 
-Remove `needs-triage` and add `refinement-done`:
+Remove `needs-triage` and add `review-me`:
 
 ```bash
-gh issue edit <number> --remove-label "needs-triage" --add-label "refinement-done"
+gh issue edit <number> --remove-label "needs-triage" --add-label "review-me"
 ```
 
-If the label `refinement-done` does not yet exist in the repository, create it first:
+If the label `review-me` does not yet exist in the repository, create it first:
 
 ```bash
-gh label create "refinement-done" --color "#0075ca" --description "Issue has been refined and is ready for planning"
+gh label create "review-me" --color "#0075ca" --description "Issue has been refined and is ready for planning"
 ```
 
 ### 6. Confirm
@@ -126,7 +126,7 @@ After all issues have been processed, print a summary table:
 
 ## Quality Criteria
 
-- Every issue that carried `needs-triage` at the start of the run now carries `refinement-done` and no longer carries `needs-triage`.
+- Every issue that carried `needs-triage` at the start of the run now carries `review-me` and no longer carries `needs-triage`.
 - Each refined description follows the structure appropriate to its type label.
 - No issue title has been modified.
 - The refined body reads as a complete, self-contained document — a reader unfamiliar with the project should understand what is needed without consulting the original skeleton.
